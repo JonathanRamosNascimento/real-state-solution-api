@@ -7,6 +7,7 @@ const routes = express.Router();
 
 routes.get('/user', UserController.index);
 routes.post('/user', UserController.store);
+routes.post('/login', UserController.login);
 
 routes.get('/immobile', ImmobileController.index);
 routes.post('/immobile', ImmobileController.store);
