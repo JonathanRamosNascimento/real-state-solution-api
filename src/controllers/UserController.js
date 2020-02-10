@@ -4,6 +4,12 @@ const jwt = require('jsonwebtoken');
 
 const authConfig = require('../config/auth');
 
+function generateToken(params = {}) {
+  return jwt.sign(params, authConfig.secret, {
+    expiresIn: 86400,
+  });
+}
+
 module.exports = {
   async index(req, res) {
     const users = await User.find();
@@ -20,7 +26,7 @@ module.exports = {
 
       user.password = undefined;
 
-      return res.json({ user });
+      return res.json({ user, token: generateToken({ id: user._id }) });
     } catch (err) {
       return res.status(400).send({ error: 'Falha no registro! ' + err });
     }
@@ -40,10 +46,6 @@ module.exports = {
 
     user.password = undefined;
 
-    const token = jwt.sign({ id: user._id }, authConfig.secret, {
-      expiresIn: 86400,
-    });
-
-    res.send({ user, token });
+    res.send({ user, token: generateToken({ id: user._id }) });
   }
 }
