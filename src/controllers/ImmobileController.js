@@ -13,9 +13,13 @@ module.exports = {
   },
 
   async store(req, res) {
-    const immobile = await Immobile.create(req.body);
+    try {
+      const immobile = await Immobile.create(req.body);
 
-    return res.json(immobile);
+      return res.status(201).json(immobile);
+    } catch (err) {
+      return res.status(400).send({ error: err });
+    }
   },
 
   async update(req, res) {
