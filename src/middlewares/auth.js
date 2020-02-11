@@ -3,11 +3,12 @@ const authConfig = require('../config/auth.json');
 
 module.exports = (req, res, next) => {
   const authHeader = req.headers.authorization;
+  const authComplete = 'Bearer ' + authHeader;
 
-  if (!authHeader)
+  if (!authComplete)
     return res.status(401).send({ error: 'O token não foi informado!' });
 
-  const parts = authHeader.split(' ');
+  const parts = authComplete.split(' ');
 
   if (!parts.length === 2)
     return res.status(401).send({ error: 'Token incorreto' });
