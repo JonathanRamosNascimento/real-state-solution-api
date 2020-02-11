@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const ImmobileSchema = new mongoose.Schema({
+const ImmobileSchema = new Schema({
+  proprietario: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   tamamho: Number,
   quarto: Number,
   banheiro: Number,
@@ -14,4 +18,4 @@ const ImmobileSchema = new mongoose.Schema({
   cozinha: String
 });
 
-module.exports = mongoose.model('Immobile', ImmobileSchema);
+module.exports = model('Immobile', ImmobileSchema);

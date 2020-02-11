@@ -7,11 +7,11 @@ const authMiddleware = require('./middlewares/auth');
 
 const routes = express.Router();
 
-routes.get('/user', UserController.index);
 routes.post('/user', UserController.store);
 routes.post('/login', UserController.login);
 
 routes.use(authMiddleware);
+routes.get('/user', UserController.index);
 routes.get('/immobile', ImmobileController.index);
 routes.post('/immobile', ImmobileController.store);
 
