@@ -1,6 +1,8 @@
 const mongoose = require('mongoose').set('useCreateIndex', true);
+require('dotenv/config');
 
-mongoose.connect('mongodb://localhost:27017/realStateSolution', {
+
+mongoose.connect('mongodb://'+process.env.DB_HOST+':27017/'+process.env.DB_NAME, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

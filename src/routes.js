@@ -10,7 +10,8 @@ const routes = express.Router();
 routes.post('/user', UserController.store);
 routes.post('/login', UserController.login);
 
-routes.use(authMiddleware);
+routes.use(authMiddleware);  // Guardião das rotas
+
 routes.get('/user', UserController.index);
 routes.get('/immobile', ImmobileController.index);
 routes.post('/immobile', ImmobileController.store);
