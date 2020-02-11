@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 
+require('dotenv/config');
+
 const routes = require('./routes');
 
 const app = express();
@@ -12,4 +14,4 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 
-server.listen(3333);
+server.listen(process.env.PORT || 3333);
