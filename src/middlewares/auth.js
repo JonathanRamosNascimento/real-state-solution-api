@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   const authComplete = 'Bearer ' + authHeader;
 
   if (!authComplete)
-    return res.status(401).send({ error: 'O token não foi informado!' });
+    return res.status(401).send({ error: 'Token não informado!' });
 
   const parts = authComplete.split(' ');
 
@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
   const [scheme, token] = parts;
 
   if (!/^Bearer$/i.test(scheme))
-    return res.status(401).send({ error: 'Token malformatted' });
+    return res.status(401).send({ error: 'Formato incorreto de token' });
 
   jwt.verify(token, process.env.SECRET_API, (err, decoded) => {
     if (err) return res.status(401).send({ error: 'Token invalido!' });

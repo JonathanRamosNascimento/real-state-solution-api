@@ -1,8 +1,8 @@
-const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 require('dotenv/config');
+
+const User = require('../models/User');
 
 function generateToken(params = {}) {
   return jwt.sign(params, process.env.SECRET_API, {
@@ -40,5 +40,13 @@ module.exports = {
     user.password = undefined;
 
     res.send({ user, token: generateToken({ id: user._id }) });
+  },
+
+  async update(req, res) {
+    return res.send('Update');
+  },
+
+  async delete(req, res) {
+    return res.send('Delete');
   }
 }
