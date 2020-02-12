@@ -30,12 +30,32 @@ routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  * @swagger
  * /user:
  *  post:
- *    description: Rota para criar novo usuário
+ *    description: Cadastrar Novo usuário no sistema
+ *    parameters:
+ *      - in: body
+ *        name: User
+ *        description: Dados do novo usuário
+ *        schema:
+ *          $ref: '#/definitions/User'
  *    responses:
  *      '201':
- *        description: Usuário criado com sucesso
- *      '401':
- *        description: Token invalido
+ *        description: Usuário cadastrado com sucesso
+ *      '400':
+ *        description: Este email já foi cadastrado ou campo obrigatorio
+ * definitions:
+ *  User:
+ *    type: object
+ *    required:
+ *      - email
+ *      - name
+ *      - password
+ *    properties:
+ *      email:
+ *        type: string
+ *      name:
+ *        type: string
+ *      password:
+ *        type: string
  */
 routes.post('/user', UserController.store);
 
@@ -46,17 +66,17 @@ routes.post('/user', UserController.store);
  *    description: Fazer login no sistema
  *    parameters:
  *      - in: body
- *        name: User
+ *        name: UserLogin
  *        description: Usuário para realizar o login
  *        schema:
- *          $ref: '#/definitions/User'
+ *          $ref: '#/definitions/UserLogin'
  *    responses:
  *      '200':
  *        description: Usuário logado com sucesso
  *      '400':
  *        description: Senha invalido ou Usuário não encontrado
  * definitions:
- *  User:
+ *  UserLogin:
  *    type: object
  *    required:
  *      - email
