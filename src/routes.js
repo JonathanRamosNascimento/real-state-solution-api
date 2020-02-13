@@ -243,9 +243,33 @@ routes.post('/immobile', ImmobileController.store);
  *    responses:
  *      '200':
  *        description: Imóvel encontrado
+ *      '404':
+ *        description: Imóvel não encontrado
  */
 routes.get('/immobile/:id', ImmobileController.show);
 
+/**
+ * @swagger
+ * /user/{id}:
+ *  get:
+ *    description: Buscar Usuário por ID
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        description: Usuário ID
+ *        schema:
+ *          type: string
+ *      - in: header
+ *        name: Authorization
+ *        schema:
+ *          type: string
+ *          format: token
+ *    responses:
+ *      '200':
+ *        description: Usuário encontrado
+ *      '404':
+ *        description: Usuário não encontrado
+ */
 routes.get('/user/:id', UserController.show);
 
 module.exports = routes;
