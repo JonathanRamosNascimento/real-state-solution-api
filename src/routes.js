@@ -48,12 +48,15 @@ routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *    required:
  *      - email
  *      - name
+ *      - phone
  *      - password
  *    properties:
  *      email:
  *        type: string
  *      name:
  *        type: string
+ *      phone:
+ *        type: number
  *      password:
  *        type: string
  */
