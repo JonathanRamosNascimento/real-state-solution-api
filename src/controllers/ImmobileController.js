@@ -12,6 +12,18 @@ module.exports = {
     }
   },
 
+  async show(req, res) {
+    try {
+      const { id } = req.params;
+
+      const immobile = await Immobile.find({ _id: id });
+
+      return res.send(immobile);
+    } catch (error) {
+      return res.status(400).send({ error: err });
+    }
+  },
+
   async store(req, res) {
     try {
       const immobile = await Immobile.create(req.body);

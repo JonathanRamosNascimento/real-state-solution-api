@@ -172,6 +172,11 @@ routes.get('/immobile', ImmobileController.index);
  *        description: Dados do novo imóvel
  *        schema:
  *          $ref: '#/definitions/Immobile'
+ *      - in: header
+ *        name: Authorization
+ *        schema:
+ *          type: string
+ *          format: token
  *    responses:
  *      '201':
  *        description: Imóvel cadastrado com sucesso
@@ -218,5 +223,27 @@ routes.get('/immobile', ImmobileController.index);
  *        type: string
  */
 routes.post('/immobile', ImmobileController.store);
+
+/**
+ * @swagger
+ * /immobile/{id}:
+ *  get:
+ *    description: Buscar Imóvel pelo ID
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        description: Imóvel ID
+ *        schema:
+ *          type: string
+ *      - in: header
+ *        name: Authorization
+ *        schema:
+ *          type: string
+ *          format: token
+ *    responses:
+ *      '200':
+ *        description: Imóvel encontrado
+ */
+routes.get('/immobile/:id', ImmobileController.show);
 
 module.exports = routes;
