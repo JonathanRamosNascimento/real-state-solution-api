@@ -14,6 +14,10 @@ const ImmobileSchema = new Schema({
     type: Number,
     required: true
   },
+  suite: {
+    type: String,
+    required: true
+  },
   banheiro: {
     type: Number,
     required: true
@@ -27,7 +31,7 @@ const ImmobileSchema = new Schema({
     required: true,
   },
   garagem: {
-    type: String,
+    type: Number,
     required: true
   },
   piscina: {
@@ -38,15 +42,15 @@ const ImmobileSchema = new Schema({
     type: String,
     required: true
   },
-  areaTanque: {
+  bairro: {
     type: String,
     required: true
   },
-  sala: {
+  cidade: {
     type: String,
     required: true
   },
-  cozinha: {
+  estado: {
     type: String,
     required: true
   }

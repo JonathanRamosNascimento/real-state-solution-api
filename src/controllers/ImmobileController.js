@@ -3,8 +3,8 @@ const Immobile = require('../models/Immobile');
 module.exports = {
   async index(req, res) {
     try {
-      const { tamanho, quarto, banheiro, piso, varanda, garagem, piscina, moveisImbutidos, areaTanque, sala, cozinha } = req.query;
-      const immobiles = await Immobile.find({ $and: [{ tamanho: { $gte: tamanho } }, { quarto }, { banheiro }, { piso }, { varanda }, { garagem }, { piscina }, { moveisImbutidos }, { areaTanque }, { sala }, { cozinha }] });
+      const { tamanho, quarto, suite, banheiro, piso, varanda, garagem, piscina, moveisImbutidos, bairro, cidade, estado } = req.query;
+      const immobiles = await Immobile.find({ $and: [{ tamanho: { $gte: tamanho } }, { quarto }, { suite }, { banheiro }, { piso }, { varanda }, { garagem }, { piscina }, { moveisImbutidos }, { bairro }, { cidade }, { estado }] });
 
       return res.json(immobiles);
     } catch (err) {
