@@ -246,4 +246,6 @@ routes.post('/immobile', ImmobileController.store);
  */
 routes.get('/immobile/:id', ImmobileController.show);
 
+routes.get('/user/:id', UserController.show);
+
 module.exports = routes;

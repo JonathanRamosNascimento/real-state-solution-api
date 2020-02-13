@@ -26,6 +26,17 @@ module.exports = {
     }
   },
 
+  async show(req, res) {
+    try {
+      const { id } = req.params;
+      const users = await User.find({ _id: id }).select('+phone');
+
+      res.status(200).send(users);
+    } catch (error) {
+      res.status(400).send({ error: error });
+    }
+  },
+
   async login(req, res) {
     const { email, password } = req.body;
 

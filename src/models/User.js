@@ -12,10 +12,15 @@ const UserSchema = new Schema({
     required: true,
     lowercase: true
   },
+  phone: {
+    type: Number,
+    required: true,
+    select: false
+  },
   password: {
     type: String,
     required: true,
-    select: false,
+    select: false
   },
 });
 
