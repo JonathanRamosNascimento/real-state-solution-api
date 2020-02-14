@@ -16,9 +16,10 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      const immobile = await Immobile.find({ _id: id });
-
-      return res.send(immobile);
+      const immobile = await Immobile.findById(id);
+      const dicas = await Immobile.find({ bairro: immobile.bairro });
+      
+      return res.send({ imovel: immobile, dicas });
     } catch (error) {
       return res.status(400).send({ error: err });
     }
