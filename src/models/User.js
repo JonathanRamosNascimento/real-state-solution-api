@@ -17,11 +17,15 @@ const UserSchema = new Schema({
     required: true,
     select: false
   },
+  profile: {
+    type: String,
+    default: 'cliente',
+  },
   password: {
     type: String,
     required: true,
     select: false
-  },
+  }
 });
 
 UserSchema.pre('save', async function (next) {

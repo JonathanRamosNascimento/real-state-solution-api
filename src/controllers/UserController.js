@@ -26,6 +26,15 @@ module.exports = {
     }
   },
 
+  async index(req, res) {
+    try {
+      const users = await User.find();
+      return res.status(200).send(users);
+    } catch (error) {
+      return res.send({ error });
+    }
+  },
+
   async show(req, res) {
     try {
       const { id } = req.params;
