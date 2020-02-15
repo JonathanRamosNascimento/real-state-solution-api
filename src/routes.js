@@ -49,6 +49,7 @@ routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *      - email
  *      - name
  *      - phone
+ *      - profile
  *      - password
  *    properties:
  *      email:
@@ -57,6 +58,8 @@ routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *        type: string
  *      phone:
  *        type: number
+ *      profile:
+ *        type: string
  *      password:
  *        type: string
  */
@@ -275,6 +278,21 @@ routes.get('/immobile/:id', ImmobileController.show);
  */
 routes.get('/user/:id', UserController.show);
 
+/**
+ * @swagger
+ * /user:
+ *  get:
+ *    description: Buscar todos os Usuários
+ *    parameters:
+ *      - in: header
+ *        name: Authorization
+ *        schema:
+ *          type: string
+ *          format: token
+ *    responses:
+ *      '200':
+ *        description: Usuários encontrado
+ */
 routes.get('/user', UserController.index);
 
 module.exports = routes;
