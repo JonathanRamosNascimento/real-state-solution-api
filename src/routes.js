@@ -160,7 +160,7 @@ routes.get('/match/:id', MatchController.show);
  */
 routes.post('/login', UserController.login);
 
-routes.use(authMiddleware);  // Guardião das rotas
+// routes.use(authMiddleware);  // Guardião das rotas
 
 /**
  * @swagger
