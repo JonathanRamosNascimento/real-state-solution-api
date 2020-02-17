@@ -4,6 +4,7 @@ const swaggerUi = require('swagger-ui-express');
 
 const UserController = require('./controllers/UserController');
 const ImmobileController = require('./controllers/ImmobileController');
+const MatchController = require('./controllers/MatchController');
 
 const authMiddleware = require('./middlewares/auth');
 
@@ -64,6 +65,70 @@ routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *        type: string
  */
 routes.post('/user', UserController.store);
+
+/**
+ * @swagger
+ * /match:
+ *  post:
+ *    description: Dar "match" entre o cliente e o imóvel
+ *    parameters:
+ *      - in: body
+ *        name: Match
+ *        description: O usuário que não estiver cadastrado deve passar o phone e name e o id do immobile (SOMENTE), já o usuário cadastrado deve passar apenas o seu id do usuario e o id do immobile
+ *        schema:
+ *          $ref: '#/definitions/Match'
+ *    responses:
+ *      '201':
+ *        description: Match cadastrado com sucesso
+ * definitions:
+ *  Match:
+ *    type: object
+ *    required:
+ *      - name
+ *      - phone
+ *      - user
+ *      - immobile
+ *    properties:
+ *      name:
+ *        type: string
+ *      phone:
+ *        type: number
+ *      user:
+ *        type: string
+ *      immobile:
+ *        type: string
+ */
+routes.post('/match', MatchController.store);
+
+/**
+ * @swagger
+ * /match:
+ *  get:
+ *    description: Buscar todos matchs no sistema
+ *    responses:
+ *      '200':
+ *        description: Matchs encontrados
+ */
+routes.get('/match', MatchController.index);
+
+/**
+ * @swagger
+ * /match/{id}:
+ *  get:
+ *    description: Buscar Match pelo ID
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        description: Match ID
+ *        schema:
+ *          type: string
+ *    responses:
+ *      '200':
+ *        description: Match encontrado
+ *      '404':
+ *        description: Match não encontrado
+ */
+routes.get('/match/:id', MatchController.show);
 
 /**
  * @swagger
