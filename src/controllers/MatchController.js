@@ -14,7 +14,7 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { bairro, cidade, estado } = await Immobile.findOne(req.immobile);
+      const { bairro, cidade, estado } = await Immobile.findById(req.body.immobile);
       var body = { ...req.body, bairro, cidade, estado };
 
       if (body.user !== undefined) {
