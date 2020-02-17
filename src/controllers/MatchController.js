@@ -15,7 +15,6 @@ module.exports = {
   async store(req, res) {
     try {
       const { bairro, cidade, estado, images } = await Immobile.findById(req.body.immobile);
-      console.log(images);
       
       var body = { ...req.body, bairro, cidade, estado, images };
 
