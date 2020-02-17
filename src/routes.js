@@ -267,6 +267,7 @@ routes.get('/immobile', ImmobileController.index);
  *      - sala
  *      - cozinha
  *      - proprietario
+ *      - images
  *    properties:
  *      tamanho:
  *        type: integer
@@ -292,6 +293,10 @@ routes.get('/immobile', ImmobileController.index);
  *        type: string
  *      proprietario:
  *        type: string
+ *      images:
+ *        type: array
+ *        items:
+ *          type: string
  */
 routes.post('/immobile', ImmobileController.store);
 

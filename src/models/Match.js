@@ -7,6 +7,9 @@ const MatchSchema = new Schema({
   estado: String,
   cidade: String,
   email: String,
+  images: [{
+    type: String
+  }],
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

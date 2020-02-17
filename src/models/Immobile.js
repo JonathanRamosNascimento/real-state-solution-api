@@ -53,7 +53,10 @@ const ImmobileSchema = new Schema({
   estado: {
     type: String,
     required: true
-  }
+  },
+  images: [{
+    type: String
+  }]
 });
 
 module.exports = model('Immobile', ImmobileSchema);
