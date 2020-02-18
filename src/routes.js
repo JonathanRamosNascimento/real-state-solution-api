@@ -208,21 +208,6 @@ routes.post('/login', UserController.login);
  *        schema:
  *          type: string
  *        description: Tem moveis imbutidos? sim/não
- *      - in: query
- *        name: areaTanque
- *        schema:
- *          type: string
- *        description: Tem area para tanque? sim/não
- *      - in: query
- *        name: sala
- *        schema:
- *          type: string
- *        description: Tem sala? sim/não
- *      - in: query
- *        name: cozinha
- *        schema:
- *          type: string
- *        description: Tem cozinha? sim/não
  * 
  *      - in: header
  *        name: Authorization
@@ -257,15 +242,17 @@ routes.get('/immobile', ImmobileController.index);
  *    required:
  *      - tamanho
  *      - quarto
+ *      - suite
  *      - banheiro
  *      - piso
  *      - varanda
  *      - garagem
  *      - piscina
  *      - moveisImbutidos
- *      - areaTanque
- *      - sala
- *      - cozinha
+ *      - bairro
+ *      - cidade
+ *      - estado
+ *      - preco
  *      - proprietario
  *      - images
  *    properties:
@@ -275,22 +262,26 @@ routes.get('/immobile', ImmobileController.index);
  *        type: integer
  *      banheiro:
  *        type: integer
+ *      suite:
+ *        type: string
  *      piso:
  *        type: string
  *      varanda:
  *        type: string
  *      garagem:
- *        type: string
+ *        type: number
  *      piscina:
  *        type: string
  *      moveisImbutidos:
  *        type: string
- *      areaTanque:
+ *      bairro:
  *        type: string
- *      sala:
+ *      cidade:
  *        type: string
- *      cozinha:
+ *      estado:
  *        type: string
+ *      preco:
+ *        type: integer
  *      proprietario:
  *        type: string
  *      images:
