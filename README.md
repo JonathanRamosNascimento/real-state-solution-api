@@ -1,8 +1,40 @@
-# RealStateSolution API
-Está API esta sendo desenvolvida para ser utilizado no __Mega Hack da Shawee__, onde eu e meu grupo estamos realizando o desafio imposto pela empresa __Loft__, desafio este que tem como objetivo desenvolver um sistema para auxiliar os corretores de imóveis a contactar novos possiveis clientes.
+<p align="center">
+<a href="#" alt="Shawee">
+  <img src="https://realestatesolution.netlify.com/static/media/logo.5b0f9f47.png" height="150px"></a></p>
 
-[Link para a demo da API](https://realstatesolution.herokuapp.com/)
+<br />
+<a href="https://github.com/padua-matheus13/app-megahack" alt="SHAWEE">Aplicação Mobile</a>
+<br />
+<a href="https://github.com/ricardotecnicob/realestatesolution" alt="SHAWEE">Aplicação Frontend</a>
 
-[Link para a documentação da API](https://realstatesolution.herokuapp.com/api-docs/)
+# Shawee - Real Estate Solution - Backend
 
-![Anotação 2020-02-12 181226](https://user-images.githubusercontent.com/28025814/74377720-46341000-4dc3-11ea-99b9-ae6712793cf9.png)
+## Description
+
+Backend da aplicação Real Estate Solution parte do Hackathon da Shawee
+
+## Installing
+
+`npm i`
+
+## Running
+
+`npm run dev`
+
+## Login de teste para acesso a empresas
+
+- Usúario: teste@teste.com
+- Senha: teste
+
+## Team
+
+- Ricardo Alves
+- Jonathan 
+- Paje
+- Matheus Padua
+
+## License
+
+MIT
+
+![Anotação 2020-02-17 204725](https://user-images.githubusercontent.com/28025814/74692608-cd6bf400-51c6-11ea-8a6a-f0a72ab10bbc.png)
