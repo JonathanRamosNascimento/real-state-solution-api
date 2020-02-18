@@ -14,9 +14,9 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { bairro, cidade, estado, images } = await Immobile.findById(req.body.immobile);
+      const { bairro, cidade, estado, images, preco } = await Immobile.findById(req.body.immobile);
       
-      var body = { ...req.body, bairro, cidade, estado, images };
+      var body = { ...req.body, bairro, cidade, estado, images, preco };
 
       if (body.user !== undefined) {
         const user = await User.findById(req.body.user).select('+phone');

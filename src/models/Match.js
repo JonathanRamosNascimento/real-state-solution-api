@@ -7,6 +7,7 @@ const MatchSchema = new Schema({
   estado: String,
   cidade: String,
   email: String,
+  preco: Number,
   images: [{
     type: String
   }],
