@@ -54,6 +54,9 @@ const ImmobileSchema = new Schema({
     type: String,
     required: true
   },
+  preco: {
+    type: Number
+  },
   images: [{
     type: String
   }]
